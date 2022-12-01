@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+    <script src="{% static 'JS/scripts.js' %}"></script>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -8,7 +9,7 @@
         <meta name="author" content="" />
         <title>DepotApp</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'DepotApp/TiendaDepot/assets/favicon.ico' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'TiendaDepot/assets/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -17,6 +18,32 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
     </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="{% static 'assets/img/navbar-logo.svg' %}" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                  
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Index' %}">Articulos</a></li>
+                     
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="{% url 'carro:carrito' %}">Carro</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="{% url 'IndexPopu' %}">Populares</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link" href="{% url 'IndexPromo' %}">Promocion</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
     <body>
 
@@ -61,10 +88,7 @@
                                         <a href="{% url 'carro:restar' value.articulo_id %}"
                                             class="btn btn-success mt-auto">Quitar una unidad
                                         </a>
-                                      
-
                                        </div> 
-
                                     </div>
                         </div>
                     {% endfor %}
@@ -73,6 +97,10 @@
             </div>
         </section>
 
+        <div class="d-grid gap-2 col-4 mx-auto py-2">
+            <a href="{% url 'carro:okPedido' %}" class="btn btn-primary">REALIZAR PEDIDO</a>
+
+        </div>
 
 
         <footer class="footer py-4">
